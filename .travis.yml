@@ -16,7 +16,7 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t travis_env_var_exe --build-arg FAVORITE_FOOD=${FAVORITE_FOOD} .
-  - docker tag ravis_env_var_exe "$DOCKER_USERNAME"/travis_env_var_exe:latest
+  - docker tag travis_env_var_exe "$DOCKER_USERNAME"/travis_env_var_exe:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
